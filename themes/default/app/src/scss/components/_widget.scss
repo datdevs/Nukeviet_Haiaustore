@@ -1,0 +1,309 @@
+//
+// Widgets
+// --------------------------------------------------
+
+// Component common styles
+
+.widget {
+  .tns-carousel .tns-nav {
+    padding-top: 0.5rem;
+  }
+}
+
+.widget-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &[data-simplebar] {
+    overflow-x: hidden;
+  }
+}
+
+.widget-title {
+  margin-bottom: $spacer * 1.125;
+
+  font: {
+    size: $widget-title-font-size;
+    weight: $widget-title-font-weight;
+  }
+}
+
+// Widget: Categories
+
+.widget-categories {
+  .accordion-item {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .accordion-body {
+    padding: $accordion-body-padding-y / 2 0;
+  }
+
+  .accordion-button {
+    box-shadow: none;
+
+    color: $widget-categories-active-color;
+    padding: ($accordion-padding-y / 2.25) 0;
+
+    font: {
+      size: $widget-categories-font-size;
+      weight: normal;
+    }
+
+    &::after {
+      content: '\e906';
+      height: $widget-categories-indicator-size;
+      line-height: $widget-categories-indicator-size;
+      padding-top: 0.0625rem;
+      text-align: center;
+      width: $widget-categories-indicator-size;
+
+      background: {
+        color: $widget-categories-indicator-active-bg;
+        image: none;
+      }
+
+      font: {
+        family: $icons-font-family;
+        size: $widget-categories-indicator-icon-size;
+        weight: bold;
+      }
+    }
+
+    &.collapsed {
+      color: $widget-categories-color;
+
+      &::after {
+        background-color: $accordion-icon-box-bg;
+      }
+    }
+
+    &:hover {
+      color: $widget-categories-hover-color;
+
+      &::after {
+        background-color: $widget-categories-indicator-hover-bg;
+      }
+    }
+  }
+
+  .widget-list-item {
+    margin-bottom: 0.375rem;
+    padding-left: 0.75rem;
+  }
+
+  .widget-list:not([data-simplebar]) {
+    border-right: $border-width * 2 solid $border-color;
+
+    .widget-list-item {
+      padding-right: 1rem;
+
+      .widget-list:not([data-simplebar]) {
+        border-right: 0;
+      }
+    }
+  }
+}
+
+// Widget: Links
+
+.widget-list-item {
+  margin-bottom: $spacer * 0.5;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.widget-list-link {
+  color: $widget-links-dark-color;
+  display: block;
+  transition: $widget-transition;
+
+  font: {
+    size: $widget-links-font-size;
+    weight: $widget-links-font-weight;
+  }
+
+  &:hover {
+    color: $widget-links-dark-hover-color;
+  }
+}
+
+.active > .widget-list-link {
+  color: $widget-links-dark-active-color;
+}
+
+.widget-light {
+  .widget-list-link {
+    color: $widget-links-light-color;
+
+    &:hover {
+      color: $widget-links-light-hover-color;
+    }
+  }
+
+  .active > .widget-list-link {
+    color: $widget-links-light-active-color;
+  }
+}
+
+// Widget products common styles: Featured products, Cart
+
+.widget-product-title {
+  line-height: 1.3;
+  margin-bottom: $spacer / 4;
+
+  font: {
+    size: $widget-product-title-font-size;
+    weight: $widget-product-title-font-weight;
+  }
+
+  > a {
+    color: $widget-product-title-color;
+  }
+
+  &:hover > a {
+    color: $widget-product-title-hover-color;
+  }
+}
+
+.widget-product-meta {
+  font-size: $widget-product-meta-font-size;
+}
+
+// Widget: Cart
+
+.widget-cart {
+  width: 20rem;
+
+  .scroll-area {
+    max-height: 15rem;
+    overflow: auto;
+  }
+}
+
+.widget-cart-item {
+  position: relative;
+
+  .btn-close {
+    background: none;
+    height: auto;
+    left: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: visibility 0.25s ease-in-out, opacity 0.25s ease-in-out;
+
+    visibility: hidden;
+
+    font: {
+      size: $font-size-base * 1.5;
+      weight: 300;
+    }
+  }
+
+  > .d-flex {
+    transition: all 0.25s ease-in-out;
+  }
+}
+
+// Widget: Tags
+
+.btn-tag {
+  border: $tag-border-width solid $tag-border-color;
+  color: $tag-color;
+  display: inline-block;
+  font-size: $tag-font-size;
+  padding: $tag-padding-y $tag-padding-x;
+  transition: $btn-transition;
+  white-space: nowrap;
+  @include border-radius($tag-border-radius);
+
+  &:hover {
+    background-color: $tag-hover-bg;
+    border-color: $tag-hover-border-color;
+    color: $tag-hover-color;
+  }
+
+  &.active {
+    background-color: $tag-active-bg;
+    border-color: $tag-active-border-color;
+    box-shadow: $tag-active-box-shadow;
+    color: $tag-active-color;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+// Widget: Range slider
+
+.range-slider-ui {
+  background-color: $range-slider-bg;
+  border: 0;
+  box-shadow: none;
+  height: $range-slider-height;
+  margin: 3.5rem 0;
+
+  .noUi-connect {
+    background-color: $range-slider-connect-bg;
+  }
+
+  .noUi-handle {
+    border: 0;
+    border-radius: 50%;
+    box-shadow: $range-slider-handle-box-shadow;
+    height: $range-slider-handle-size;
+    margin-top: -($range-slider-handle-size / 2);
+    top: 50%;
+    width: $range-slider-handle-size;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .noUi-marker-normal {
+    display: none;
+  }
+
+  .noUi-marker-horizontal {
+    &.noUi-marker {
+      background-color: darken($border-color, 6%);
+      width: $border-width;
+    }
+
+    &.noUi-marker-large {
+      height: 0.75rem;
+    }
+  }
+
+  .noUi-value {
+    color: $body-color;
+    font-size: $font-size-ms;
+    padding-top: 0.125rem;
+  }
+
+  .noUi-tooltip {
+    background-color: $range-slider-tooltip-bg;
+    border: 0;
+    color: $range-slider-tooltip-color;
+    font-size: $range-slider-tooltip-font-size;
+    line-height: 1.2;
+    padding: $tooltip-padding-y $tooltip-padding-x;
+    @include border-radius($tooltip-border-radius);
+  }
+}
+
+html:not([dir='rtl']) .range-slider-ui.noUi-horizontal .noUi-handle {
+  right: -($range-slider-handle-size / 2);
+}

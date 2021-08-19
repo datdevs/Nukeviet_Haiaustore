@@ -1,0 +1,100 @@
+//
+// Alert
+// --------------------------------------------------
+
+// Overrides
+
+.alert-secondary {
+  background-color: $gray-100;
+  border-color: $border-color;
+}
+
+.alert-secondary,
+.alert-light {
+  color: $gray-700;
+
+  .alert-link {
+    color: $gray-900;
+  }
+}
+
+.alert-dark {
+  background-color: $dark;
+  border-color: $dark;
+  color: $white;
+
+  .alert-link {
+    color: $white;
+  }
+}
+
+.alert {
+  [class^='ci-'],
+  [class*=' ci-'] {
+    margin-top: 0.1875rem;
+  }
+
+  .alert-icon {
+    [class^='ci-'],
+    [class*=' ci-'] {
+      margin-top: 0;
+    }
+  }
+
+  hr {
+    color: rgba($black, 0.1);
+  }
+}
+
+// Link
+
+.alert-link {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Icon
+
+.alert-icon {
+  align-items: center;
+  display: flex;
+  font-size: $alert-icon-font-size;
+  padding: 0.75em;
+
+  margin: {
+    bottom: -$alert-padding-y;
+    left: -$alert-padding-x;
+    right: $alert-padding-x;
+    top: -$alert-padding-y;
+  }
+
+  @include border-start-radius($alert-border-radius);
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    .alert-icon {
+      background-color: rgba($value, $alert-icon-bg-factor);
+    }
+  }
+}
+
+.alert-secondary .alert-icon {
+  background-color: $gray-300;
+}
+
+.alert-light .alert-icon {
+  background-color: $gray-200;
+}
+
+// Dismissible alert
+
+.alert-dismissible .btn-close {
+  padding: {
+    bottom: 1.125rem;
+    top: 1.125rem;
+  }
+}

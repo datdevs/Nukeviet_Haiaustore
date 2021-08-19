@@ -1,0 +1,368 @@
+//
+// Social buttons
+// --------------------------------------------------
+
+// Base styles
+
+.btn-social {
+  background-color: $btn-social-dark-bg;
+  border: $btn-social-border-width solid transparent;
+  color: $btn-social-dark-color;
+  display: inline-block;
+  font-size: $btn-social-font-size;
+  height: $btn-social-size;
+  padding: 0;
+  transition: $btn-social-transition;
+  width: $btn-social-size;
+  @include border-radius($btn-social-border-radius);
+
+  text: {
+    align: center;
+    decoration: none !important;
+  }
+
+  > i {
+    line-height: $btn-social-size - 0.125rem;
+  }
+
+  &:hover {
+    color: $btn-social-dark-hover-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: none !important;
+    transition: none;
+  }
+
+  &.bs-light {
+    background-color: $btn-social-light-bg;
+    color: $btn-social-light-color;
+
+    &:hover {
+      background-color: $btn-social-light-hover-bg !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Sizing
+
+.bs-lg {
+  font-size: $btn-social-font-size-lg;
+  height: $btn-social-size-lg;
+  width: $btn-social-size-lg;
+  @include border-radius($btn-social-border-radius-lg);
+
+  > i {
+    line-height: $btn-social-size-lg - 0.125rem;
+  }
+}
+
+.bs-sm {
+  font-size: $btn-social-font-size-sm;
+  height: $btn-social-size-sm;
+  width: $btn-social-size-sm;
+  @include border-radius($btn-social-border-radius-sm);
+
+  > i {
+    line-height: $btn-social-size-sm - 0.125rem;
+  }
+}
+
+// Outline variant
+
+.bs-outline {
+  background-color: transparent;
+  border-color: $btn-social-dark-border-color;
+
+  &.bs-light {
+    background-color: transparent;
+    border-color: $btn-social-light-border-color;
+  }
+
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+// Brand colors
+
+.bs-facebook:hover {
+  background-color: #4267b2;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#4267b2, 0.9);
+
+  &.bs-light {
+    color: #4267b2;
+  }
+}
+
+.bs-twitter:hover {
+  background-color: #1da1f2;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#1da1f2, 0.9);
+
+  &.bs-light {
+    color: #1da1f2;
+  }
+}
+
+.bs-instagram:hover {
+  background-color: #833ab4;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#833ab4, 0.9);
+
+  &.bs-light {
+    color: #833ab4;
+  }
+}
+
+.bs-google:hover {
+  background-color: #ea4335;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#ea4335, 0.9);
+
+  &.bs-light {
+    color: #ea4335;
+  }
+}
+
+.bs-linkedin:hover {
+  background-color: #0077b5;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#0077b5, 0.9);
+
+  &.bs-light {
+    color: #0077b5;
+  }
+}
+
+.bs-pinterest:hover {
+  background-color: #bd081c;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#bd081c, 0.9);
+
+  &.bs-light {
+    color: #bd081c;
+  }
+}
+
+.bs-tumblr:hover {
+  background-color: #35465c;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#35465c, 0.9);
+
+  &.bs-light {
+    color: #35465c;
+  }
+}
+
+.bs-behance:hover {
+  background-color: #1769ff;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#1769ff, 0.9);
+
+  &.bs-light {
+    color: #1769ff;
+  }
+}
+
+.bs-dribbble:hover {
+  background-color: #ea4c89;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#ea4c89, 0.9);
+
+  &.bs-light {
+    color: #ea4c89;
+  }
+}
+
+.bs-vk:hover {
+  background-color: #45668e;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#45668e, 0.9);
+
+  &.bs-light {
+    color: #45668e;
+  }
+}
+
+.bs-odnoklassniki:hover {
+  background-color: #ed812b;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#ed812b, 0.9);
+
+  &.bs-light {
+    color: #ed812b;
+  }
+}
+
+.bs-skype:hover {
+  background-color: #00aff0;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#00aff0, 0.9);
+
+  &.bs-light {
+    color: #00aff0;
+  }
+}
+
+.bs-hangouts:hover {
+  background-color: #0f9d58;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#0f9d58, 0.9);
+
+  &.bs-light {
+    color: #0f9d58;
+  }
+}
+
+.bs-messenger:hover {
+  background-color: #0084ff;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#0084ff, 0.9);
+
+  &.bs-light {
+    color: #0084ff;
+  }
+}
+
+.bs-viber:hover {
+  background-color: #59267c;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#59267c, 0.9);
+
+  &.bs-light {
+    color: #59267c;
+  }
+}
+
+.bs-telegram:hover {
+  background-color: #0088cc;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#0088cc, 0.9);
+
+  &.bs-light {
+    color: #0088cc;
+  }
+}
+
+.bs-youtube:hover {
+  background-color: #ff0000;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#ff0000, 0.9);
+
+  &.bs-light {
+    color: #ff0000;
+  }
+}
+
+.bs-vimeo:hover {
+  background-color: #1ab7ea;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#1ab7ea, 0.9);
+
+  &.bs-light {
+    color: #1ab7ea;
+  }
+}
+
+.bs-wechat:hover {
+  background-color: #7bb32e;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#7bb32e, 0.9);
+
+  &.bs-light {
+    color: #7bb32e;
+  }
+}
+
+.bs-discord:hover {
+  background-color: #7289da;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(#7289da, 0.9);
+
+  &.bs-light {
+    color: #7289da;
+  }
+}
+
+.bs-tiktok:hover {
+  background-color: #25f4ee;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem #25f4ee;
+
+  &.bs-light {
+    color: #25f4ee;
+  }
+}
+
+.bs-zalo:hover {
+  background-color: #0068ff;
+  box-shadow: 0 0.5rem 1.125rem -0.5rem #0068ff;
+
+  &.bs-light {
+    color: #0068ff;
+  }
+}
+
+// Share buttons
+
+.btn-share {
+  display: inline-block;
+  font-size: $btn-share-font-size;
+  padding: $btn-share-padding-y $btn-share-padding-x;
+  text-decoration: none !important;
+  transition: $btn-share-transition;
+  vertical-align: middle;
+  @include border-radius($btn-share-border-radius);
+
+  > i {
+    font-size: 1.1em;
+    vertical-align: middle;
+
+    margin: {
+      right: 0.3125rem;
+      top: -0.125rem;
+    }
+  }
+
+  // Twitter
+  &.btn-twitter {
+    background-color: rgba(#1da1f2, 0.08);
+    color: #1da1f2;
+
+    &:hover {
+      background-color: #1da1f2;
+    }
+  }
+
+  // Instagram
+  &.btn-instagram {
+    background-color: rgba(#833ab4, 0.08);
+    color: #833ab4;
+
+    &:hover {
+      background-color: #833ab4;
+    }
+  }
+
+  // Facebook
+  &.btn-facebook {
+    background-color: rgba(#4267b2, 0.08);
+    color: #4267b2;
+
+    &:hover {
+      background-color: #4267b2;
+    }
+  }
+
+  &:hover {
+    box-shadow: none;
+    color: $white;
+  }
+}
+
+.v-socialList {
+  a {
+    align-items: center;
+    background: $btn-social-light-bg;
+    color: $btn-social-light-color;
+    display: inline-flex;
+    font-size: 1.25rem;
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+    transition: $btn-social-transition;
+    width: 40px;
+    @include border-radius($btn-social-border-radius);
+
+    &:hover {
+      background: #ffffff;
+      box-shadow: none;
+    }
+  }
+}

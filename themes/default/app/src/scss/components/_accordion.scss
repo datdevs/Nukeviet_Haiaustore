@@ -1,0 +1,27 @@
+//
+// Accordion
+// --------------------------------------------------
+
+// Button
+.accordion-button {
+  font-weight: $accordion-button-font-weight;
+
+  &::after {
+    border-radius: $accordion-icon-box-border-radius;
+    height: $accordion-icon-box-size;
+    width: $accordion-icon-box-size;
+
+    background: {
+      color: $accordion-icon-box-bg;
+      position: center;
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:not(.collapsed) {
+    box-shadow: inset 0 ($accordion-border-width * -1) 0 $accordion-border-color;
+  }
+}

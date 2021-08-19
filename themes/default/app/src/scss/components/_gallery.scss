@@ -1,0 +1,122 @@
+//
+// Gallery
+// based on https://github.com/sachinchoolur/lightgallery.js
+// ----------------------------------------------------------
+
+.gallery-item {
+  display: block;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+
+  > img {
+    display: block;
+    width: 100%;
+  }
+
+  // overlay
+  &::before {
+    background-color: $gallery-overlay-bg;
+    content: '';
+    display: block;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.3s ease-in-out;
+    width: 100%;
+    z-index: 1;
+  }
+
+  // indicator
+  &::after {
+    color: $gallery-image-indicator-color;
+    content: '\e900';
+    display: block;
+    height: $gallery-indicator-size;
+    left: 50%;
+    line-height: $gallery-indicator-size;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: scale(0.3);
+    width: $gallery-indicator-size;
+    z-index: 5;
+
+    margin: {
+      left: -($gallery-indicator-size / 2);
+      top: -($gallery-indicator-size / 2);
+    }
+
+    font: {
+      family: 'cartzilla-icons';
+      size: $gallery-image-indicator-font-size;
+    }
+  }
+
+  // item caption
+  .gallery-item-caption {
+    bottom: 0;
+    color: $gallery-caption-color;
+    display: block;
+    font-size: $gallery-caption-font-size;
+    left: 0;
+    padding: $spacer ($spacer / 2);
+    position: absolute;
+    text-align: center;
+    transform: translateY(0.5rem);
+    width: 100%;
+    z-index: 5;
+  }
+
+  &::after,
+  .gallery-item-caption {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  // hover state
+  &:hover {
+    &::before,
+    &::after,
+    .gallery-item-caption {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  // video item
+  &.video-item::after {
+    background-color: $gallery-video-indicator-bg;
+    border-radius: 50%;
+    box-shadow: $gallery-video-indicator-box-shadow;
+    color: $gallery-video-indicator-color;
+    content: '\e969';
+    opacity: 1;
+    transform: none;
+
+    font: {
+      size: $gallery-video-indicator-font-size;
+      weight: 700;
+    }
+  }
+}
+
+.lg-backdrop {
+  z-index: $zindex-lightbox-backdrop;
+}
+
+.lg-outer {
+  z-index: $zindex-lightbox-content;
+}
+
+.lg-on {
+  overflow: hidden;
+}
+
+.lg-item:focus,
+.lg:focus,
+.lg-outer:focus,
+.lg-inner:focus {
+  outline: none;
+}

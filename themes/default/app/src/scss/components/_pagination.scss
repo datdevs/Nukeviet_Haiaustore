@@ -1,0 +1,110 @@
+//
+// Pagination
+// --------------------------------------------------
+
+// Paginations
+
+.pagination {
+  margin-bottom: 0;
+  user-select: none;
+}
+
+.page-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transition: $pagination-transition;
+  height: 100%;
+
+  &:focus,
+  &:hover {
+    color: $pagination-color;
+  }
+
+  &.page-link-static:hover {
+    background-color: $pagination-bg;
+    border-color: transparent;
+    color: $pagination-color;
+  }
+
+  // > i {
+  //   margin-top: -0.125rem;
+  //   vertical-align: middle;
+  // }
+}
+
+.page-item {
+  margin: 0.15rem;
+
+  &.active {
+    cursor: default;
+    position: relative;
+    z-index: 5;
+
+    > .page-link {
+      @include box-shadow($pagination-active-box-shadow);
+    }
+  }
+
+  &.disabled {
+    > .page-link {
+      border-color: transparent;
+    }
+  }
+}
+
+// Sizing
+.pagination .page-link {
+  font-size: $pagination-font-size;
+  @include border-radius($btn-border-radius);
+}
+
+.pagination-sm .page-link {
+  font-size: $pagination-font-size-sm;
+  @include border-radius($btn-border-radius-sm);
+}
+
+.pagination-lg .page-link {
+  font-size: $pagination-font-size-lg;
+  @include border-radius($btn-border-radius-lg);
+}
+
+// Entry navigation
+
+.entry-navigation {
+  background-color: $entry-navigation-bg;
+  border: $entry-navigation-border-width solid $entry-navigation-border-color;
+  display: flex;
+  @include border-radius($entry-navigation-border-radius);
+}
+
+.entry-navigation-link {
+  border-right: $entry-navigation-border-width solid $entry-navigation-border-color;
+  color: $entry-navigation-color;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-weight: $entry-navigation-font-weight;
+  max-width: 100%;
+  padding: $entry-navigation-padding-y $entry-navigation-padding-x;
+  transition: $entry-navigation-transition;
+
+  text: {
+    align: center;
+    decoration: none;
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  > i {
+    margin-top: -0.1875rem;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    color: $entry-navigation-hover-color;
+    text-decoration: none;
+  }
+}
