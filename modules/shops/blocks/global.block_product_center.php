@@ -118,14 +118,6 @@ if (!nv_function_exists('nv_global_product_center')) {
         }
 
         if ($module != $module_name) {
-            // Css
-            if (file_exists(NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/css/' . $mod_file . '.css')) {
-                $block_css = $global_config['module_theme'];
-            } else {
-                $block_css = 'default';
-            }
-            $my_head .= '<link rel="stylesheet" href="' . NV_BASE_SITEURL . 'themes/' . $block_css . '/css/' . $mod_file . '.css' . '" type="text/css" />';
-
             // Language
             if (file_exists(NV_ROOTDIR . '/modules/' . $mod_file . '/language/' . NV_LANG_DATA . '.php')) {
                 require_once NV_ROOTDIR . '/modules/' . $mod_file . '/language/' . NV_LANG_DATA . '.php';

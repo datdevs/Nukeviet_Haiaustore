@@ -135,7 +135,7 @@ class Optimizer
                 } elseif (preg_match("/^<title>[^<]+<\/title>/is", $tag)) {
                     $this->_title = $tag;
                 } elseif (preg_match("/^<style[^>]*>([^<]*)<\/style>/is", $tag, $matches2)) {
-                    $this->_style[] = $matches2[1];
+                    $this->_style[] = $matches2[0];
                 } elseif (preg_match('/^<link/', $tag)) {
                     preg_match_all("/([a-zA-Z]+)\s*=\s*[\"|']([^\"']+)/is", $tag, $matches2);
                     $combine = array_combine($matches2[1], $matches2[2]);
@@ -202,7 +202,7 @@ class Optimizer
                         $value = '';
                     }
                 } elseif (preg_match('/^.*type="application\/ld\+json".*$/is', $value)) {
-                    $this->_content = preg_replace('/(<\/head[^>]*>)/', $this->eol . $value . $this->eol . '</head>', $this->_content, 1);
+                    $this->_content = preg_replace('/(<\/head[^>]*>)/', $this->eol . $value . $this->eol . '</head>', $this->_content, 1); // Vujidev
                     $value = '';
                 } elseif (preg_match("/<\s*\bscript\b([^>]*)>(.*?)<\s*\/\s*script\s*>/is", $value, $matches2)) {
                     $internal = trim($matches2[2]);
@@ -265,7 +265,8 @@ class Optimizer
             $head .= implode($this->eol, array_unique($this->_cssLinks)) . $this->eol;
         }
         if (!empty($this->_style)) {
-            $head .= '<style>' . implode($this->eol, $this->_style) . '</style>' . $this->eol;
+            // $head .= '<style>' . implode($this->eol, $this->_style) . '</style>' . $this->eol;
+            $head .= implode($this->eol, $this->_style) . $this->eol;
         }
 
         if (preg_match('/\<head\>/', $this->_content)) {
@@ -275,7 +276,9 @@ class Optimizer
             $this->_content = $head . $this->_content;
         }
 
-        $this->_content = preg_replace_callback('/<img[^>]+>/i', [$this, 'imagesCallback'], $this->_content); // Optimized lazyload images by Vujidev
+        if (NV_ADMIN != 1) {
+            $this->_content = preg_replace_callback('/<img[^>]+>/i', [$this, 'imagesCallback'], $this->_content); // Optimized lazyload images by Vujidev
+        }
 
         if ($_isFullBuffer) {
             if (!empty($this->_htmlforFooter)) {

@@ -32,12 +32,12 @@
     <!-- END: group_price -->
     <input type="submit" name="filter" value="{LANG.filter}" class="btn btn-primary" />
 </form>
-<script type="text/javascript" data-show="after">
+<script async defer>
 function check(){$('input[name="group_id[]"], input[name="group_price[]"]').each(function(){$(this).is(":checked")&&$count++}),alert("{LANG.filter_no_item}")}
 </script>
 <!-- END: main -->
 
-<script type="text/javascript" data-show="after">
+<script async defer>
 function check() {
   var count = 0;
   $('input[name="group_id[]"], input[name="group_price[]"]').each(function () {

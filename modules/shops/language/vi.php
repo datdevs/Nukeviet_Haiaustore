@@ -424,7 +424,7 @@ $lang_module['coupons_end_time_ulimit'] = 'Không giới hạn';
 $lang_module['coupons_uses_per_coupon'] = 'Số lượt sử dụng';
 $lang_module['coupons_uses_per_customer'] = 'Số lượt sử dụng của mỗi khách hàng';
 $lang_module['coupons_uses'] = 'Sử dụng mã giảm giá này';
-$lang_module['coupons_empty'] = 'Vui lòng nhập mã giảm giá để kiểm tra';
+$lang_module['coupons_empty'] = 'Vui lòng nhập mã giảm giá';
 $lang_module['coupons_no_exist'] = 'Mã giảm giá không tồn tại';
 
 $lang_module['point'] = 'điểm';

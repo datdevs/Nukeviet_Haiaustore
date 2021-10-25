@@ -1,4 +1,11 @@
 {
+  // "[html]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.printWidth": 1000,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

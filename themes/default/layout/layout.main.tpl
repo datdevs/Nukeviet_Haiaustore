@@ -1,8 +1,8 @@
 <!-- BEGIN: main -->
 {FILE "header_only.tpl"}
 {FILE "header_extended.tpl"}
-{FILE "breadcrumb-dark.tpl"}
-<div class="container">
+{FILE "breadcrumb-light.tpl"}
+<div class="container my-5">
 [TOP]
 {MODULE_CONTENT}
 [BOTTOM]

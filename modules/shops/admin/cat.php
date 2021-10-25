@@ -139,7 +139,7 @@ if (!empty($savecat)) {
         $data_insert['parentid'] = $data['parentid'];
         $data_insert['image'] = $data['image'];
         $data_insert['subcatid'] = '';
-        $data_insert['viewcat'] = 'viewlist';
+        $data_insert['viewcat'] = 'viewgrid'; // Vuji Tech
         $data_insert['newday'] = $data['newday'];
         $data_insert['typeprice'] = $data['typeprice'];
         $data_insert['form'] = $data['form'] ? implode(',', $data['form']) : '';

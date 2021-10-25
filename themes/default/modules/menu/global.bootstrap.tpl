@@ -9,7 +9,7 @@
 <ul class="navbar-nav">
 <!-- BEGIN: top_menu -->
 <li {TOP_MENU.current}>
-<a class="nav-link dropdown-toggle" href="{TOP_MENU.link}"{TOP_MENU.target}>{TOP_MENU.title_trim}</a>
+<a class="{TOP_MENU.classlink}" href="{TOP_MENU.link}"{TOP_MENU.linkevent}{TOP_MENU.target}>{TOP_MENU.title_trim}</a>
 <!-- BEGIN: sub -->{SUB}<!-- END: sub --></li>
 <!-- END: top_menu -->
 </ul>

@@ -14,7 +14,7 @@
 				<th class="w100">{LANG.weight}</th>
 				<th>{LANG.catalog_name}</th>
 				<th class="w150">{LANG.inhome}</th>
-				<th>{LANG.viewcat_page}</th>
+				<!-- <th>{LANG.viewcat_page}</th> -->
 				<th class="w100">{LANG.numlinks}</th>
 				<th>{LANG.newday}</th>
 				<th class="text-center" class="w250">{LANG.function}</th>
@@ -38,13 +38,7 @@
 						<!-- END: inhome -->
 					</select>
 				</td>
-				<td align="left">
-				<select class="form-control" id="id_viewcat_{ROW.catid}" onchange="nv_chang_cat('{ROW.catid}','viewcat');">
-					<!-- BEGIN: viewcat -->
-					<option value="{VIEWCAT.key}"{VIEWCAT.selected}>{VIEWCAT.title}</option>
-					<!-- END: viewcat -->
-				</select>
-				</td>
+				<!---->
 				<td class="text-center">
 					<select class="form-control" id="id_numlinks_{ROW.catid}" onchange="nv_chang_cat('{ROW.catid}','numlinks');">
 						<!-- BEGIN: numlinks -->
@@ -73,3 +67,12 @@
 </div>
 <!-- END: data -->
 <!-- END: main -->
+<th>{LANG.viewcat_page}</th>
+
+<td align="left">
+	<select class="form-control" id="id_viewcat_{ROW.catid}" onchange="nv_chang_cat('{ROW.catid}','viewcat');">
+		<!-- BEGIN: viewcat -->
+		<option value="{VIEWCAT.key}"{VIEWCAT.selected}>{VIEWCAT.title}</option>
+		<!-- END: viewcat -->
+	</select>
+</td>

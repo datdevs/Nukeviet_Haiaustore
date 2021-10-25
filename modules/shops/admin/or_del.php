@@ -46,8 +46,9 @@ if ($order_id > 0 and $checkss == md5($order_id . $global_config['sitekey'] . se
 
     // Cap nhat lich su su dung ma giam gia
     $num = $db->query('SELECT COUNT(*) FROM ' . $db_config['prefix'] . '_' . $module_data . '_coupons_history WHERE order_id = ' . $order_id)->fetchColumn();
+    $coupon_id = $db->query('SELECT cid FROM ' . $db_config['prefix'] . '_' . $module_data . '_coupons_history WHERE order_id = ' . $order_id)->fetchColumn();
     if ($num > 0) {
-        $db->query('UPDATE ' . $db_config['prefix'] . '_' . $module_data . '_coupons SET uses_per_coupon_count = uses_per_coupon_count - 1 WHERE id = ' . $array_coupons['cid']);
+        $db->query('UPDATE ' . $db_config['prefix'] . '_' . $module_data . '_coupons SET uses_per_coupon_count = uses_per_coupon_count - 1 WHERE id = ' . $coupon_id);
         $exec = $db->exec("DELETE FROM " . $db_config['prefix'] . "_" . $module_data . "_coupons_history WHERE order_id=" . $order_id);
     }
 
@@ -106,8 +107,9 @@ if ($order_id > 0 and $checkss == md5($order_id . $global_config['sitekey'] . se
 
             // Cap nhat lich su su dung ma giam gia
             $num = $db->query('SELECT COUNT(*) FROM ' . $db_config['prefix'] . '_' . $module_data . '_coupons_history WHERE order_id = ' . $order_id)->fetchColumn();
+            $coupon_id = $db->query('SELECT cid FROM ' . $db_config['prefix'] . '_' . $module_data . '_coupons_history WHERE order_id = ' . $order_id)->fetchColumn();
             if ($num > 0) {
-                $db->query('UPDATE ' . $db_config['prefix'] . '_' . $module_data . '_coupons SET uses_per_coupon_count = uses_per_coupon_count - 1 WHERE order_id = ' . $order_id);
+                $db->query('UPDATE ' . $db_config['prefix'] . '_' . $module_data . '_coupons SET uses_per_coupon_count = uses_per_coupon_count - 1 WHERE id = ' . $coupon_id);
                 $exec = $db->exec("DELETE FROM " . $db_config['prefix'] . "_" . $module_data . "_coupons_history WHERE order_id=" . $order_id);
             }
 

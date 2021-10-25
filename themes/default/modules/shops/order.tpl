@@ -124,7 +124,7 @@
         <div class="col-12">
           <div class="d-none d-lg-flex mt-3">
             <div class="w-50 pe-3"><a class="btn btn-secondary d-block w-100" href="{LINK_CART}"><i class="ci-arrow-left me-1"></i><span class="d-none d-sm-inline">Quay lại giỏ hàng</span><span class="d-inline d-sm-none">Quay lại</span></a></div>
-            <div class="w-50 ps-2"><button class="btn btn-primary d-block w-100" type="submit"><span class="d-none d-sm-inline">Tiếp theo</span><span class="d-inline d-sm-none">Tiếp theo</span><i class="ci-arrow-right ms-1"></i></button></div>
+            <div class="w-50 ps-2"><button class="btn btn-primary d-block w-100" type="submit"><span class="d-inline">Tiếp theo</span><i class="ci-arrow-right ms-1"></i></button></div>
           </div>
         </div>
       </div>
@@ -167,7 +167,7 @@
     </div>
   </aside>
 </div>
-<script type="text/javascript" data-show="after">
+<script async defer>
     var url_load = nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=shippingajax';
     var urloadcart = nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart';
     var order_shipping = '{DATA.order_shipping}';
@@ -180,20 +180,19 @@
           url: nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=order&nocache=' + new Date().getTime(),
           data: $(this).serialize(),
           success: function (json) {
-            console.log(json)
-            // if (json.error) {
-            //   alert(json.msg);
-            //   $('#' + json.input).focus();
-            // } else {
-            //   window.location.href = json.redirect;
-            // }
+            if (json.error) {
+              toasting('Có lỗi xảy ra', json.msg, 'danger')
+              $('#' + json.input).focus();
+            } else {
+              window.location.href = json.redirect;
+            }
           }
         });
       });
     });
 </script>
 <!-- BEGIN: shipping_javascript -->
-<script type="text/javascript" data-show="after">
+<script async defer>
     $(document).ready(function() {
         var shops_id = $('[name="shop_id"]');
         var carrier_id = $('[name="carrier"]:checked');

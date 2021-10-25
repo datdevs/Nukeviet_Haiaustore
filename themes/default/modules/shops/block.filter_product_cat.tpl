@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<script type="text/javascript" data-show="after">
+<script async defer>
 $(document).ready(function() {
     var rewrite_enable = {REWRITE_ENABLE};
     $('input[name="groupid[]"]').click(function() {

@@ -1,5 +1,5 @@
 <!-- BEGIN: main -->
-<script type="text/javascript" data-show="after">
+<script async defer>
 $(document).ready(function() {
     window.print();
 });

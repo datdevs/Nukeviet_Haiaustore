@@ -34,7 +34,7 @@ if (!function_exists('nv_cart_info')) {
         $num = isset($_SESSION[$module . '_cart']) ? count($_SESSION[$module . '_cart']) : 0;
         $link_cart = NV_MY_DOMAIN . nv_url_rewrite(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module . "&amp;" . NV_OP_VARIABLE . "=cart", true);
 
-        $content = '<div class="navbar-tool dropdown ms-3"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="' . $link_cart . '"><span class="navbar-tool-label">' . $num . '</span><i class="navbar-tool-icon ci-cart"></i></a><div id="cart_block' . $module . '" class="dropdown-menu dropdown-menu-end"></div><script type="text/javascript">$("#cart_block' . $module . '").load("' . NV_REAL_DOMAIN . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module . "&" . NV_OP_VARIABLE . "=loadcart&get_list_product=1&coupons_check=1&coupons_code=" . $coupons_code . '");</script></div>';
+        $content = '<div class="navbar-tool dropdown ms-3"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="' . $link_cart . '"><span id="product_num_total" class="navbar-tool-label">' . $num . '</span><i class="navbar-tool-icon ci-cart"></i></a><div id="cart_block' . $module . '" class="dropdown-menu dropdown-menu-end"></div><script async defer>$("#cart_block' . $module . '").load("' . NV_REAL_DOMAIN . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module . "&" . NV_OP_VARIABLE . "=loadcart&get_list_product=1&coupons_check=1&coupons_code=" . $coupons_code . '");</script></div>';
         return $content;
     }
 }

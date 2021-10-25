@@ -1,4 +1,3 @@
-</main>
 <footer class="footer bg-dark pt-5">
   <div class="container">
     <div class="row pb-2">
@@ -17,13 +16,14 @@
         </div>
         <div class="widget widget-links widget-light pb-2 mb-4">
           <h3 class="widget-title text-light">Đơn vị vận chuyển</h3>
-          <div class="payment-methods-icon d-flex flex-wrap">
-            <span class="me-3 mb-3"><img src="{NV_REAL_DOMAIN}themes/default/images/pm/visa.svg" alt="pm-visa" width="58" height="36"></span>
-            <span class="me-3 mb-3"><img src="{NV_REAL_DOMAIN}themes/default/images/pm/mastercard.svg" alt="pm-mastercard" width="58" height="36"></span>
-            <span class="me-3 mb-3"><img src="{NV_REAL_DOMAIN}themes/default/images/pm/jcb.svg" alt="pm-jcb" width="58" height="36"></span>
-            <span class="me-3 mb-3"><img src="{NV_REAL_DOMAIN}themes/default/images/pm/cash.svg" alt="pm-cash" width="58" height="36"></span>
-            <span class="me-3 mb-3"><img src="{NV_REAL_DOMAIN}themes/default/images/pm/internet-banking.svg" alt="pm-internet-banking" width="58" height="36"></span>
-            <span class="me-3 mb-3 momo"><img src="{NV_REAL_DOMAIN}themes/default/images/pm/momo.svg" alt="pm-momo" width="58" height="36"></span>
+          <div class="delivery-icon d-flex flex-wrap align-items-center">
+            <span class="me-3 mb-3"><span class="delivery delivery-viettelpost"></span></span>
+            <span class="me-3 mb-3"><span class="delivery delivery-ghtk"></span></span>
+            <span class="me-3 mb-3"><span class="delivery delivery-ghn"></span></span>
+            <span class="me-3 mb-3"><span class="delivery delivery-vnpost"></span></span>
+            <span class="me-3 mb-3"><span class="delivery delivery-jt"></span></span>
+            <span class="me-3 mb-3"><span class="delivery delivery-grab"></span></span>
+            <span class="me-3 mb-3"><span class="delivery delivery-ninja"></span></span>
           </div>
         </div>
       </div>
@@ -75,3 +75,6 @@
     </div>
   </div>
 </footer>
+</main>
+<div class="toast-wrapper"></div>
+[PLUGIN_ADDONS]

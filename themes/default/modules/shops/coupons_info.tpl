@@ -1,49 +1,47 @@
 <!-- BEGIN: main -->
 <!-- BEGIN: error -->
-<div class="alert alert-danger">{ERROR}</div>
+<div class="alert alert-danger d-flex coupon-info" role="alert">
+  <div class="alert-icon">
+    <i class="ci-close-circle"></i>
+  </div>
+  <div class="alert-content"><span>{ERROR}</span></div>
+</div>
 <!-- END: error -->
 
 <!-- BEGIN: content -->
-<div class="alert alert-info">
-	<h3>{DATA.title}</h3>
-	<ul style="padding: 0">
-		<li><strong>{LANG.coupons_discount}</strong>: {DATA.discount}{DATA.discount_text}</li>
+<div class="alert alert-info d-flex coupon-info" role="alert">
+  <div class="alert-icon">
+    <i class="ci-announcement"></i>
+  </div>
+  <div class="alert-content">
+		<div>
+			<span><strong>{LANG.coupons_discount}</strong>: {DATA.discount}{DATA.discount_text}</span>
+		</div>
 		<!-- BEGIN: total_amount -->
-		<li><strong>{LANG.coupons_total_amount}</strong>: {DATA.total_amount} {MONEY_UNIT}</li>
+		<div>
+			<span><strong>{LANG.coupons_total_amount}</strong>: {DATA.total_amount} {MONEY_UNIT}</span>
+		</div>
 		<!-- END: total_amount -->
-		<li><strong>{LANG.coupons_begin_time}</strong>: {DATA.date_start}</li>
-		<li><strong>{LANG.coupons_end_time}</strong>: {DATA.date_end}</li>
-	</ul>
-	<label class="pull-right"><input type="checkbox" name="coupons_uses" id="coupons_uses" {COUPONS_CHECK} />{LANG.coupons_uses}</label>
-	<div class="clear"></div>
+	</div>
 </div>
-<script type="text/javascript" data-show="after">
+<script async defer>
 	$(document).ready(function() {
-		nv_check_counpons_use();
-		$('#coupons_uses').change(function() {
-			var coupons_code = $('#coupons_code').val();
-			if($(this).is(":checked")) {
-				$("#cart_" + nv_module_name).load(urload + '&coupons_check=1&coupons_code=' + coupons_code);
-			}
-			else
-			{
-				$("#cart_" + nv_module_name).load(urload + '&coupons_check=0&coupons_code=' + coupons_code);
-			}
-			nv_check_counpons_use();
-		});
-	});
-
-	function nv_check_counpons_use()
-	{
 		var coupons_code = $('#coupons_code').val();
-		if($('#coupons_uses').is(":checked")) {
-			$("#total").load(urload + '&coupons_check=1&coupons_load=1&coupons_code=' + coupons_code + '&t=2');
-		}
-		else
-		{
-			$("#total").load(urload + '&coupons_check=0&coupons_load=1&coupons_code=' + coupons_code + '&t=2');
-		}
-	}
+		$('#coupons_check').addClass('d-none').removeClass('d-block')
+		$('#coupons_remove').addClass('d-block').removeClass('d-none')
+		$("#cart_block" + nv_module_name).load(urload + '&get_list_product=1' + '&coupons_check=1&coupons_code=' + coupons_code);
+		$("#total").load(urload + '&coupons_check=1&coupons_load=1&coupons_code=' + coupons_code + '&t=2');
+		$('#coupons_remove').click(function() {
+			$.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=cart&nocache=' + new Date().getTime(), 'coupons_clear=1', function(res) {
+				$('#coupons_info').html(res);
+				$("#cart_block" + nv_module_name).load(urload + '&get_list_product=1');
+				$("#total").load(urload + '&t=2');
+				$('#coupons_remove').addClass('d-none').removeClass('d-block')
+				$('#coupons_check').addClass('d-block').removeClass('d-none')
+				$('#coupons_code').val('')
+			});
+		})
+	});
 </script>
 <!-- END: content -->
 

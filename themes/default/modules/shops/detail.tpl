@@ -62,13 +62,13 @@
               <!-- BEGIN: header -->
               <div class="fs-sm mb-2">
                 <span class="text-heading fw-medium me-1">{HEADER}:</span>
-                <span class="text-muted" id="colorOption">Red/Dark blue/White</span>
+                <span class="text-muted" id="colorOption_{GROUPID}"></span>
               </div>
               <!-- END: header -->
-              <div class="mb-2" data-groupid="{GROUPID}" data-header="{HEADER}">
+              <div class="itemsgroup mb-2" data-groupid="{GROUPID}" data-header="{HEADER}">
               <!-- BEGIN: loop -->
               <div class="form-check form-option form-check-inline mb-2">
-                <input class="form-check-input groupid" type="radio" name="groupid[{GROUPID}]" id="groupid_{GROUP.groupid}" data-bs-label="colorOption" onclick="check_quantity( $(this) )" value="{GROUP.groupid}"<!-- BEGIN: checked --> checked<!-- END: checked -->>
+                <input class="form-check-input groupid" type="radio" name="groupid[{GROUPID}]" id="groupid_{GROUP.groupid}" onclick="check_quantity( $(this), '{GROUP.title}' )" value="{GROUP.groupid}"<!-- BEGIN: checked --> checked<!-- END: checked -->>
                 <!-- BEGIN: image -->
                 <label class="form-option-label rounded-circle" for="groupid_{GROUP.groupid}"><span class="invisible">{GROUP.groupid}</span><span class="form-option-color rounded-circle lazyload" data-bgset="{IMG}"></span></label>
                 <!-- END: image -->
@@ -92,9 +92,9 @@
                 <!-- END: product_number -->
               </div>
               <!-- END: order_number -->
-              <div class="mb-3 d-flex align-items-center">
+              <div class="mb-3 d-flex align-items-center flex-column flex-sm-row">
                 <!-- BEGIN: order -->
-                <button class="btn btn-outline-primary d-block w-100 btn-order btn-order-cart me-3" data-id="{proid}" onclick="cartorder_detail(this, {POPUP}, 0); return !1;"><i class="ci-cart fs-lg me-2"></i>{LANG.add_cart}</button>
+                <button class="btn btn-outline-primary d-block w-100 btn-order btn-order-cart mb-2 me-sm-3" data-id="{proid}" onclick="cartorder_detail(this, {POPUP}, 0); return !1;"><i class="ci-cart fs-lg me-2"></i>{LANG.add_cart}</button>
                 <button class="btn btn-primary btn-shadow d-block w-100 btn-order btn-order-buy" data-id="{proid}" onclick="cartorder_detail(this, {POPUP}, 1); return !1;"><i class="ci-card fs-lg me-2"></i>{LANG.buy_now}</button>
                 <!-- END: order -->
                 <!-- BEGIN: product_empty -->
@@ -134,7 +134,7 @@
   </div>
   <!-- BEGIN: product_detail -->
   <!-- BEGIN: tabs -->
-  <div class="pt-3 pb-5 px-5">
+  <div class="pt-sm-3 pb-sm-5 px-sm-5 mb-5 mb-sm-0">
     <!-- BEGIN: tabs_content -->
     {TABS_CONTENT}
     <!-- END: tabs_content -->
@@ -158,34 +158,71 @@
 </div>
 <!-- END: other_view -->
 <!-- END: product_detail -->
-<script type="text/javascript" src="{NV_BASE_SITEURL}themes/default/images/{MODULE_FILE}/jquery.ez-plus.js"></script>
-<div class="product-detail <!-- BEGIN: popupid -->prodetail-popup<!-- END: popupid -->" itemtype="http://schema.org/Product" itemscope>
-    <span class="d-none hidden hide" itemprop="mpn" content="{PRODUCT_CODE}"></span>
-    <span class="d-none hidden hide" itemprop="sku" content="{PRODUCT_CODE}"></span>
-    <div class="d-none hidden hide" itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
-        <span itemprop="name">N/A</span>
-    </div>
-    <!-- BEGIN: allowed_rating_snippets -->
-    <div class="d-none hidden hide" itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
-        <span itemprop="reviewCount">{RATE_TOTAL}</span>
-        <span itemprop="ratingValue">{RATE_VALUE}</span>
-    </div>
-    <!-- END: allowed_rating_snippets -->
-    <div class="d-none hidden hide" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
-        <!-- BEGIN: price1 -->
-        <span itemprop="price">{PRICE.sale}</span>
-        <span itemprop="priceCurrency">{PRICE.unit}</span>
-        <!-- END: price1 -->
-        <a itemprop="url" href="{PRO_FULL_LINK}"></a>
-        <span itemprop="priceValidUntil">{PRICEVALIDUNTIL}</span>
-        <span itemprop="availability">{AVAILABILITY}</span>
-    </div>
-    <div class="panel panel-default panel-product-info">
-    </div>
-    
-</div>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "{TITLE}",
+    "image": <!-- BEGIN: imageschema -->[
+      <!-- BEGIN: loop -->"{DOMAIN}{IMAGE.file}"<!-- BEGIN: comma -->, <!-- END: comma --><!-- END: loop -->
+    ]<!-- END: imageschema --><!-- BEGIN: oneimageschema -->{DOMAIN}{IMAGE.file}<!-- END: oneimageschema -->,
+    "description": "{DESCRIPTION}",
+    "sku": "{PRODUCT_CODE}",
+    "mpn": "{PRODUCT_CODE}",
+    "brand": {
+      "@type": "Brand",
+      "name": "Local Brand"
+    },
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Nguyễn Tuấn Anh"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.4",
+      "reviewCount": "152"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "{PRO_FULL_LINK}",
+      "priceCurrency": "VND",
+      "price": "{PRICE.sale}",
+      "priceValidUntil": "2025-01-21",
+      "itemCondition": "https://schema.org/UsedCondition",
+      "availability": "{AVAILABILITY}"
+    }
+  }
+</script>
+<script async defer>
+  ready(() => {
+    const previews = document.querySelectorAll('.product-gallery-preview-item')
+    const thumbnails = document.querySelectorAll('.product-gallery-thumblist-item')
+
+    for (var n = 0; n < thumbnails.length; n++) {
+      thumbnails[n].addEventListener('click', changePreview);
+    }
+
+    function changePreview(e) {
+      e.preventDefault();
+      for (var _i = 0; _i < thumbnails.length; _i++) {
+        previews[_i].classList.remove('active');
+        thumbnails[_i].classList.remove('active');
+      }
+      this.classList.add('active');
+      document.querySelector(this.getAttribute('href')).classList.add('active');
+    }
+  })
+</script>
 <!-- BEGIN: allowed_print_js -->
-<script type="text/javascript" data-show="after">
+<script async defer>
     $(function() {
         $('#click_print').click(function(event) {
             var href = $(this).attr("href");
@@ -196,17 +233,8 @@
     });
 </script>
 <!-- END: allowed_print_js -->
-<!-- BEGIN: imagemodal -->
-<script type="text/javascript" data-show="after">
-    $('.open_modal').click(function(e){
-        e.preventDefault();
-         $('#idmodals .modal-body').html( '<img src="' + $(this).data('src') + '" alt="" class="img-responsive" />' );
-         $('#idmodals').modal('show');
-    });
-</script>
-<!-- END: imagemodal -->
 <!-- BEGIN: order_number_limit -->
-<script type="text/javascript" data-show="after">
+<script async defer>
     $('#pnum').attr( 'max', '{PRODUCT_NUMBER}' );
     $('#pnum').change(function(){
         if( intval($(this).val()) > intval($(this).attr('max')) ){
@@ -216,18 +244,15 @@
     });
 </script>
 <!-- END: order_number_limit -->
-<script type="text/javascript">
+<script async defer>
 var detail_error_group = '{LANG.detail_error_group}';
-function check_quantity(_this) {
-  // $('input[name="'+_this.attr('name')+'"]').parent().css('border-color', '#ccc');
-  // if (_this.is(':checked')) {
-  //     _this.parent().css('border-color', 'blue');
-  // }
+function check_quantity(_this, title) {
+  const colorOption = `colorOption_${_this.closest('.itemsgroup').data('groupid')}`
+  $('#' + colorOption).text(title)
   $('#group_error').css( 'display', 'none' );
   <!-- BEGIN: check_price -->
   check_price( '{proid}', '{pro_unit}' );
   <!-- END: check_price -->
-  resize_popup();
 }
 $(document).ready(function() {
     // Chọn ngay nhóm sản phẩm đầu tiên nếu có 1 nhóm mỗi loại
@@ -241,11 +266,4 @@ $(document).ready(function() {
     });
 });
 </script>
-<!-- BEGIN: popup -->
-<script type="text/javascript">
-$(window).on('load', function() {
-    resize_popup();
-});
-</script>
-<!-- END: popup -->
 <!-- END: main -->

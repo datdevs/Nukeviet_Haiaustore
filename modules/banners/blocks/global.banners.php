@@ -147,6 +147,7 @@ if (!nv_function_exists('nv_block_data_config_banners')) {
                     } else {
                         $xtpl->parse('main.loop.type_image');
                     }
+                    $xtpl->parse('main.loop.image');
                 }
 
                 if (!empty($banners['bannerhtml'])) {

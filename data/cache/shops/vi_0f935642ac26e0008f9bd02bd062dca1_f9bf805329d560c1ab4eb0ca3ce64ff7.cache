@@ -1,4 +1,4 @@
-a:23:{i:1;a:25:{s:5:"catid";i:1;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:10:"Túi xách";s:12:"title_custom";s:0:"";s:5:"alias";s:8:"tui-xach";s:7:"viewcat";s:8:"viewlist";s:9:"numsubcat";i:2;s:8:"subcatid";s:3:"6,7";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
+a:23:{i:1;a:25:{s:5:"catid";i:1;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:10:"Túi xách";s:12:"title_custom";s:0:"";s:5:"alias";s:8:"tui-xach";s:7:"viewcat";s:8:"viewgrid";s:9:"numsubcat";i:2;s:8:"subcatid";s:3:"6,7";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
 100000
 200000
 500000
@@ -16,7 +16,7 @@ a:23:{i:1;a:25:{s:5:"catid";i:1;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:1
 500000
 1000000
 2000000
-5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:2;a:25:{s:5:"catid";i:2;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:6:"Ví da";s:12:"title_custom";s:0:"";s:5:"alias";s:5:"vi-da";s:7:"viewcat";s:8:"viewlist";s:9:"numsubcat";i:4;s:8:"subcatid";s:9:"8,9,10,11";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
+5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:2;a:25:{s:5:"catid";i:2;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:6:"Ví da";s:12:"title_custom";s:0:"";s:5:"alias";s:5:"vi-da";s:7:"viewcat";s:8:"viewgrid";s:9:"numsubcat";i:4;s:8:"subcatid";s:9:"8,9,10,11";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
 100000
 200000
 500000
@@ -46,7 +46,7 @@ a:23:{i:1;a:25:{s:5:"catid";i:1;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:1
 500000
 1000000
 2000000
-5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:3;a:25:{s:5:"catid";i:3;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:10:"Giày dép";s:12:"title_custom";s:0:"";s:5:"alias";s:8:"giay-dep";s:7:"viewcat";s:8:"viewlist";s:9:"numsubcat";i:3;s:8:"subcatid";s:8:"12,13,14";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
+5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:3;a:25:{s:5:"catid";i:3;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:10:"Giày dép";s:12:"title_custom";s:0:"";s:5:"alias";s:8:"giay-dep";s:7:"viewcat";s:8:"viewgrid";s:9:"numsubcat";i:3;s:8:"subcatid";s:8:"12,13,14";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
 100000
 200000
 500000
@@ -70,7 +70,7 @@ a:23:{i:1;a:25:{s:5:"catid";i:1;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:1
 500000
 1000000
 2000000
-5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:4;a:25:{s:5:"catid";i:4;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:12:"Phụ kiện";s:12:"title_custom";s:0:"";s:5:"alias";s:8:"phu-kien";s:7:"viewcat";s:8:"viewlist";s:9:"numsubcat";i:6;s:8:"subcatid";s:17:"15,16,17,18,19,20";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
+5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:4;a:25:{s:5:"catid";i:4;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:12:"Phụ kiện";s:12:"title_custom";s:0:"";s:5:"alias";s:8:"phu-kien";s:7:"viewcat";s:8:"viewgrid";s:9:"numsubcat";i:6;s:8:"subcatid";s:17:"15,16,17,18,19,20";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
 100000
 200000
 500000
@@ -112,7 +112,7 @@ a:23:{i:1;a:25:{s:5:"catid";i:1;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:1
 500000
 1000000
 2000000
-5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:5;a:25:{s:5:"catid";i:5;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:12:"Đồng hồ";s:12:"title_custom";s:0:"";s:5:"alias";s:7:"dong-ho";s:7:"viewcat";s:8:"viewlist";s:9:"numsubcat";i:3;s:8:"subcatid";s:8:"21,22,23";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
+5000000";s:19:"viewdescriptionhtml";i:0;s:8:"numlinks";i:4;s:11:"description";s:0:"";s:15:"descriptionhtml";s:0:"";s:6:"inhome";i:1;s:8:"keywords";s:0:"";s:15:"tag_description";s:0:"";s:11:"groups_view";s:1:"6";s:15:"cat_allow_point";i:0;s:16:"cat_number_point";i:0;s:18:"cat_number_product";i:0;s:5:"image";s:0:"";}i:5;a:25:{s:5:"catid";i:5;s:8:"parentid";i:0;s:3:"lev";i:0;s:5:"title";s:12:"Đồng hồ";s:12:"title_custom";s:0:"";s:5:"alias";s:7:"dong-ho";s:7:"viewcat";s:8:"viewgrid";s:9:"numsubcat";i:3;s:8:"subcatid";s:8:"21,22,23";s:6:"newday";i:7;s:9:"typeprice";i:1;s:4:"form";s:0:"";s:11:"group_price";s:52:"0
 100000
 200000
 500000

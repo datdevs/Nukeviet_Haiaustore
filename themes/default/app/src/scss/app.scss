@@ -1,23 +1,14 @@
-@import './core/vars';
-
-@import 'swiper/swiper.scss';
-@import 'swiper/components/lazy/lazy.scss';
-@import 'swiper/components/navigation/navigation.scss';
-@import 'swiper/components/pagination/pagination.scss';
-@import 'swiper/components/thumbs/thumbs.scss';
-@import 'swiper/components/effect-fade/effect-fade.scss';
-
-@import 'hamburgers/_sass/hamburgers/_base.scss';
-@import 'hamburgers/_sass/hamburgers/types/_spin.scss';
+@import './core/variables';
+@import './core/mixins';
+@import './components/icons';
 
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
+@import './core/utilities';
+// @import 'bootstrap/scss/utilities';
 
-@import './core/mixins';
-
-@import 'bootstrap/scss/utilities';
-
+// Layout & components
 @import 'bootstrap/scss/root';
 @import 'bootstrap/scss/reboot';
 @import 'bootstrap/scss/type';
@@ -27,28 +18,218 @@
 @import 'bootstrap/scss/tables';
 @import 'bootstrap/scss/forms';
 @import 'bootstrap/scss/buttons';
+@import 'components/buttons';
 @import 'bootstrap/scss/transitions';
 @import 'bootstrap/scss/dropdown';
-// @import "bootstrap/scss/button-group";
+@import 'bootstrap/scss/button-group';
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
 @import 'bootstrap/scss/card';
-// @import "bootstrap/scss/accordion";
+@import 'bootstrap/scss/accordion';
 @import 'bootstrap/scss/breadcrumb';
 @import 'bootstrap/scss/pagination';
 @import 'bootstrap/scss/badge';
 @import 'bootstrap/scss/alert';
-// @import "bootstrap/scss/progress";
+@import 'bootstrap/scss/progress';
 @import 'bootstrap/scss/list-group';
 @import 'bootstrap/scss/close';
-// @import "bootstrap/scss/toasts";
+@import 'bootstrap/scss/toasts';
 @import 'bootstrap/scss/modal';
 @import 'bootstrap/scss/tooltip';
-// @import "bootstrap/scss/popover";
-// @import "bootstrap/scss/carousel";
-// @import "bootstrap/scss/spinners";
+@import 'bootstrap/scss/popover';
+@import 'bootstrap/scss/carousel';
+@import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/offcanvas';
+
+// Helpers
 @import 'bootstrap/scss/helpers';
+
+// Utilities
 @import 'bootstrap/scss/utilities/api';
 
-@import './core/datepicker';
-@import './core/base';
+@import 'tiny-slider/src/tiny-slider';
+
+@import './core/reboot';
+@import './components/accordion';
+@import './components/alert';
+@import './components/badge';
+@import './components/breadcrumb';
+@import './components/carousel';
+@import './components/countdown';
+@import './components/dropdown';
+@import './components/input-group';
+@import './components/form';
+@import './components/modal';
+@import './components/nav';
+@import './components/navbar';
+@import './components/pagination';
+@import './components/offcanvas';
+@import './components/widget';
+@import './components/blog';
+@import './components/shop';
+@import './components/social';
+@import './components/steps';
+@import './components/toasts';
+@import './components/type';
+@import './components/gallery';
+
+.xdebug-var-dump {
+  overflow: unset;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.v-icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+
+  svg {
+    fill: currentColor;
+    height: 1em;
+    width: 1em;
+  }
+
+  .fill-secondary {
+    opacity: 0.3;
+  }
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.header-search {
+  button {
+    background: none;
+    border: 0;
+    z-index: 10;
+  }
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.list-has-last-child {
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.info-footer {
+  h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  p,
+  a {
+    color: #ccc;
+    font-size: 13px;
+    margin: 0;
+  }
+}
+
+.infof-icon {
+  float: left;
+  margin-right: 15px;
+  margin-top: 3px;
+
+  i {
+    border: 1px solid $primary;
+    border-radius: 0.3125rem;
+    color: #fff;
+    font-size: 20px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    width: 34px;
+  }
+}
+
+.payment-methods-icon {
+  span {
+    background: $gray-300;
+    display: inline-flex;
+    overflow: hidden;
+    @include border-radius($btn-social-border-radius);
+
+    &.momo {
+      background: #a50064;
+    }
+  }
+}
+
+.coupon-info {
+  .alert-icon {
+    font-size: 1rem;
+  }
+  .alert-content {
+    font-size: 0.875rem;
+  }
+}
+
+.has-banner {
+  img {
+    width: 100%;
+  }
+}
+
+.delivery {
+  background-image: url('http://haiaustore.io/themes/default/images/delivery.png');
+  display: inline-block;
+  pointer-events: none;
+  user-select: none;
+
+  &-viettelpost {
+    background-position: 88.90701468189233% 100%;
+    background-size: 578.90625% 138.28125%;
+    height: 40px;
+    width: 55px;
+  }
+
+  &-ghtk {
+    background-position: 19.97084548104956% 37.735849056603776%;
+    background-size: 1347.2727272727273% 983.3333333333334%;
+    height: 18px;
+    width: 55px;
+  }
+
+  &-ghn {
+    background-position: 9.037900874635568% 40.54054054054054%;
+    background-size: 1347.2727272727273% 610.3448275862069%;
+    height: 29px;
+    width: 55px;
+  }
+
+  &-vnpost {
+    background-position: 1.4577259475218658% 72.66666666666667%;
+    background-size: 1347.2727272727273% 655.5555555555555%;
+    height: 27px;
+    width: 55px;
+  }
+
+  &-jt {
+    background-position: 95.6268221574344% 6.211180124223603%;
+    background-size: 1347.2727272727273% 1106.25%;
+    height: 16px;
+    width: 55px;
+  }
+
+  &-grab {
+    background-position: 29.9835255354201% 6.756756756756757%;
+    background-size: 552.9850746268656% 610.3448275862069%;
+    height: 15px;
+    width: 55px;
+  }
+
+  &-ninja {
+    background-position: 55.947136563876654% 6.622516556291391%;
+    background-size: 1235% 680.7692307692307%;
+    height: 20px;
+    width: 50px;
+  }
+}

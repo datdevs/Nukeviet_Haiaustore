@@ -67,32 +67,6 @@
 	</table>
 </div>
 <!-- END: info -->
-<!-- BEGIN: version -->
-<h3><em class="fa fa-globe">&nbsp;</em><strong>{LANG.version}</strong> <span style="font-weight:400">(<a href="{ULINK}">{CHECKVERSION}</a>)</span></h3>
-<div class="table-responsive">
-	<table class="table table-striped table-bordered table-hover">
-		<thead>
-			<tr>
-				<th>{LANG.moduleContent}</th>
-				<th>{LANG.moduleValue}</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!-- BEGIN: loop -->
-			<tr>
-				<td>{KEY}</td>
-				<td class="aright">{VALUE}</td>
-			</tr>
-			<!-- END: loop -->
-		</tbody>
-	</table>
-</div>
-<!-- BEGIN: inf -->
-<div class="newVesionInfo">
-	{INFO}
-</div>
-<!-- END: inf -->
-<!-- END: version -->
 <script type="text/javascript">
 	$(function () {
 	    $("img.imgstatnkv").attr("src","//static.nukeviet.vn/img.jpg");

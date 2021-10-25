@@ -4,7 +4,7 @@ const helpers = require('./helpers')
 module.exports = {
   // Where webpack looks to start building the bundle
   entry: {
-    g: helpers.root('src/views', 'global'),
+    app: helpers.root('src', 'index'),
     // i: helpers.root('src/views', 'home'),
     // c: helpers.root('src/views', 'contact'),
     // n: helpers.root('src/views', 'news'),
@@ -18,7 +18,7 @@ module.exports = {
   output: {
     path: helpers.pluginPath('../../vendor'),
     filename: 'js/[name].js',
-    assetModuleFilename: 'assets/[hash:5][ext]',
+    assetModuleFilename: 'assets/[name][ext]',
     publicPath: '/themes/default/vendor/',
   },
 
@@ -36,7 +36,7 @@ module.exports = {
       { test: /\.js$/, use: ['babel-loader'] },
 
       // Assets Loader test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg|gif)$/,
-      { test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg|gif)$/, type: 'asset/resource' },
+      // { test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg|gif)$/, type: 'asset/resource' },
     ],
   },
 

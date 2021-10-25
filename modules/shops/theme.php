@@ -234,6 +234,8 @@ function nv_template_detail($data_content, $data_unit, $data_others, $array_othe
         $xtpl->assign('CAT_TITLE', $global_array_shops_cat[$data_content['listcatid']]['title']);
         $xtpl->assign('SRC_PRO_FULL', $global_config['site_url'] . $data_content['homeimgthumb']);
         $xtpl->assign('TITLE', $data_content[NV_LANG_DATA . '_title']);
+        $xtpl->assign('DESCRIPTION', $data_content[NV_LANG_DATA . '_hometext']);
+        $xtpl->assign('DOMAIN', $global_config['site_url']);
 
         if (!empty($data_content['product_weight'])) {
             $xtpl->assign('PRODUCT_WEIGHT', $data_content['product_weight']);
@@ -269,6 +271,7 @@ function nv_template_detail($data_content, $data_unit, $data_others, $array_othe
             // Sản phẩm có 1 ảnh
             $xtpl->assign('IMAGE', current($data_content['image']));
             $xtpl->parse('main.oneimage');
+            $xtpl->parse('main.oneimageschema');
         } elseif ($num_images > 1) {
             // Gallery ảnh
             $stt = 0;
@@ -282,9 +285,14 @@ function nv_template_detail($data_content, $data_unit, $data_others, $array_othe
                 if ($stt == 1) {
                     $xtpl->parse('main.image.loop1.active');
                 }
+                if ($stt < $num_images) {
+                    $xtpl->parse('main.imageschema.loop.comma');
+                }
                 $xtpl->parse('main.image.loop1');
+                $xtpl->parse('main.imageschema.loop');
             }
             $xtpl->parse('main.image');
+            $xtpl->parse('main.imageschema');
         }
 
         if ($pro_config['active_gift'] and !empty($data_content[NV_LANG_DATA . '_gift_content']) and NV_CURRENTTIME >= $data_content['gift_from'] and NV_CURRENTTIME <= $data_content['gift_to']) {
@@ -1025,8 +1033,8 @@ function payment($data_content, $data_pro, $data_shipping, $payment_supported, $
     if (!empty($data_content['order_note'])) {
         $xtpl->parse('main.order_note');
     }
-    $xtpl->assign('order_coupons', nv_number_format($data_content['coupons']['amount'], nv_get_decimals($pro_config['money_unit'])));
-    $xtpl->assign('price_total_products', nv_number_format($data_content['order_total'] + $data_content['coupons']['amount'], nv_get_decimals($pro_config['money_unit'])));
+
+    $xtpl->assign('price_total_products', nv_number_format($data_content['order_total'] + (isset($data_content['coupons']['amount']) ? $data_content['coupons']['amount'] : 0), nv_get_decimals($pro_config['money_unit']))); // Vuji Tech
     $xtpl->assign('order_total', nv_number_format($data_content['order_total'], nv_get_decimals($pro_config['money_unit'])));
     $xtpl->assign('unit', $money_config[$data_content['unit_total']]['symbol']);
 
@@ -1067,6 +1075,7 @@ function payment($data_content, $data_pro, $data_shipping, $payment_supported, $
     if ($pro_config['active_price'] == '1') {
         $xtpl->parse('main.price1');
         if ($data_content['coupons'] and $data_content['coupons']['amount'] > 0) {
+            $xtpl->assign('order_coupons', nv_number_format($data_content['coupons']['amount'], nv_get_decimals($pro_config['money_unit']))); // Vuji Tech
             $xtpl->parse('main.price3.total_coupons');
         }
         $xtpl->parse('main.price3');

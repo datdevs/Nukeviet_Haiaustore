@@ -8,7 +8,7 @@
 
 function sendrating(id, point, newscheckss) {
   if (point == 1 || point == 2 || point == 3 || point == 4 || point == 5) {
-    $.post(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=rating&nocache=' + new Date().getTime(), 'id=' + id + '&checkss=' + newscheckss + '&point=' + point, function (res) {
+    $.post(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=rating&nocache=' + new Date().getTime(), 'id=' + id + '&checkss=' + newscheckss + '&point=' + point, function (res) {
       $('#stringrating').html(res)
     })
   }
@@ -40,12 +40,13 @@ function nv_del_content(id, checkss, base_adminurl) {
  * popup = 0 tức sản phẩm không phân theo nhóm
  * popup = 1 tức sản phẩm phân theo nhóm, cần mở popup để chọn nhóm
  */
-function cartorder(a_ob, popup, url) {
+function cartorder(a_ob, popup, url, module_name = null) {
+  if (module_name !== null) nv_module_name = module_name
   var id = $(a_ob).attr('id')
   if (popup == '0') {
     $.ajax({
       type: 'GET',
-      url: nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=setcart' + '&id=' + id + '&nocache=' + new Date().getTime(),
+      url: nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=setcart' + '&id=' + id + '&nocache=' + new Date().getTime(),
       data: '',
       success: function (data) {
         var s = data.split('_')
@@ -57,23 +58,25 @@ function cartorder(a_ob, popup, url) {
             intIndexOfMatch = strText.indexOf('#@#')
           }
           alert_msg(strText)
-          $('#cart_' + nv_module_name).load(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart')
+          $('#cart_block' + nv_module_name).load(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart&get_list_product=1')
+          $('#product_num_total').load(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart&t=1')
         }
       },
     })
   } else {
-    $('#sitemodal').find('.modal-content').addClass('sh-popup-modal')
-    $('#sitemodal').find('.modal-title').html('')
-    $('#sitemodal')
-      .find('.modal-body')
-      .html('<iframe class="popup-product-detail" src="' + url + '&amp;popup=1"></iframe>')
-    $('#sitemodal').modal({
-      backdrop: 'static',
-    })
-    $('#sitemodal').on('hidden.bs.modal', function () {
-      $('#sitemodal').find('.modal-content').removeClass('sh-popup-modal')
-      $('#sitemodal').unbind('hidden.bs.modal')
-    })
+    window.location.href = nv_real_domain + url
+    // $('#sitemodal').find('.modal-content').addClass('sh-popup-modal')
+    // $('#sitemodal').find('.modal-title').html('')
+    // $('#sitemodal')
+    //   .find('.modal-body')
+    //   .html('<iframe class="popup-product-detail" src="' + url + '&amp;popup=1"></iframe>')
+    // $('#sitemodal').modal({
+    //   backdrop: 'static',
+    // })
+    // $('#sitemodal').on('hidden.bs.modal', function () {
+    //   $('#sitemodal').find('.modal-content').removeClass('sh-popup-modal')
+    //   $('#sitemodal').unbind('hidden.bs.modal')
+    // })
   }
 }
 
@@ -116,7 +119,7 @@ function cartorder_detail(a_ob, popup, buy_now) {
 
   $.ajax({
     type: 'POST',
-    url: nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=setcart' + '&id=' + id + '&group=' + group + '&nocache=' + new Date().getTime(),
+    url: nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=setcart' + '&id=' + id + '&group=' + group + '&nocache=' + new Date().getTime(),
     data: 'num=' + num,
     success: function (data) {
       var s = data.split('_')
@@ -128,9 +131,10 @@ function cartorder_detail(a_ob, popup, buy_now) {
           intIndexOfMatch = strText.indexOf('#@#')
         }
         alert_msg(strText)
-        $('#cart_' + nv_module_name).load(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart')
+        $('#cart_block' + nv_module_name).load(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart&get_list_product=1')
+        $('#product_num_total').load(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart&t=1')
         if (buy_now) {
-          parent.location = nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=cart'
+          parent.location = nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=cart'
         } else if (popup) {
           parent.location = parent.location
         }
@@ -140,9 +144,7 @@ function cartorder_detail(a_ob, popup, buy_now) {
 }
 
 function alert_msg(msg) {
-  $('body').removeClass('.msgshow').append('<div class="msgshow" id="msgshow">&nbsp;</div>')
-  $('#msgshow').html(msg)
-  $('#msgshow').show('slide').delay(3000).hide('slow')
+  toasting('Thông báo', msg)
 }
 
 function checknum() {
@@ -190,7 +192,7 @@ function onsubmitsearch(module) {
   if (keyword == '' && price1 == '' && price2 == '' && cataid == 0) {
     return false
   } else {
-    window.location.href = nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + module + '&' + nv_fc_variable + '=search_result&keyword=' + rawurlencode(keyword) + '&price1=' + price1 + '&price2=' + price2 + '&typemoney=' + typemoney + '&cata=' + cataid
+    window.location.href = nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + module + '&' + nv_fc_variable + '=search_result&keyword=' + rawurlencode(keyword) + '&price1=' + price1 + '&price2=' + price2 + '&typemoney=' + typemoney + '&cata=' + cataid
   }
   return false
 }
@@ -207,14 +209,14 @@ function onsubmitsearch1() {
   if (keyword == '' && price1 == '' && price2 == '' && cataid == 0) {
     return false
   } else {
-    window.location.href = nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=search_result&keyword=' + rawurlencode(keyword) + '&price1=' + price1 + '&price2=' + price2 + '&typemoney=' + typemoney + '&cata=' + cataid
+    window.location.href = nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=search_result&keyword=' + rawurlencode(keyword) + '&price1=' + price1 + '&price2=' + price2 + '&typemoney=' + typemoney + '&cata=' + cataid
   }
   return false
 }
 
 function nv_chang_price() {
   var newsort = $('#sort').val()
-  $.post(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=ajax&nocache=' + new Date().getTime(), 'changesprice=1&sort=' + newsort, function (res) {
+  $.post(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=ajax&nocache=' + new Date().getTime(), 'changesprice=1&sort=' + newsort, function (res) {
     if (res != 'OK') {
       alert(res)
     } else {
@@ -224,7 +226,7 @@ function nv_chang_price() {
 }
 
 function nv_chang_viewtype(viewtype) {
-  $.post(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=ajax&nocache=' + new Date().getTime(), 'changeviewtype=1&viewtype=' + viewtype, function (res) {
+  $.post(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=ajax&nocache=' + new Date().getTime(), 'changeviewtype=1&viewtype=' + viewtype, function (res) {
     if (res != 'OK') {
       alert(res)
     } else {
@@ -235,7 +237,7 @@ function nv_chang_viewtype(viewtype) {
 
 function nv_compare(a) {
   nv_settimeout_disable('compare_' + a, 5e3)
-  $.post(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare&nocache=' + new Date().getTime(), 'compare=1&id=' + a, function (res) {
+  $.post(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare&nocache=' + new Date().getTime(), 'compare=1&id=' + a, function (res) {
     res = res.split('[NV]')
     if (res[0] != 'OK') {
       $('#compare_' + res[2]).removeAttr('checked')
@@ -245,11 +247,11 @@ function nv_compare(a) {
 }
 
 function nv_compare_click() {
-  $.post(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare&nocache=' + new Date().getTime(), 'compareresult=1', function (res) {
+  $.post(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare&nocache=' + new Date().getTime(), 'compareresult=1', function (res) {
     if (res != 'OK') {
       alert(res)
     } else {
-      window.location.href = nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare'
+      window.location.href = nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare'
     }
   })
   return
@@ -257,7 +259,7 @@ function nv_compare_click() {
 
 function nv_compare_del(id, all) {
   if (confirm(lang_del_confirm)) {
-    $.post(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare&nocache=' + new Date().getTime(), 'compare_del=1&id=' + id + '&all=' + all, function (res) {
+    $.post(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=compare&nocache=' + new Date().getTime(), 'compare_del=1&id=' + id + '&all=' + all, function (res) {
       if (res == 'OK') {
         window.location.href = window.location.href
       }
@@ -269,7 +271,7 @@ function nv_compare_del(id, all) {
 function wishlist(id, object) {
   $.ajax({
     type: 'GET',
-    url: nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=wishlist_update' + '&id=' + id + '&ac=add&nocache=' + new Date().getTime(),
+    url: nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=wishlist_update' + '&id=' + id + '&ac=add&nocache=' + new Date().getTime(),
     data: '',
     success: function (data) {
       var s = data.split('_')
@@ -286,7 +288,7 @@ function wishlist_del_item(id) {
   if (confirm(lang_del_confirm)) {
     $.ajax({
       type: 'GET',
-      url: nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=wishlist_update' + '&id=' + id + '&ac=del&nocache=' + new Date().getTime(),
+      url: nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=wishlist_update' + '&id=' + id + '&ac=del&nocache=' + new Date().getTime(),
       data: '',
       success: function (data) {
         var s = data.split('_')
@@ -307,7 +309,7 @@ function payment_point(order_id, checkss, lang_confirm) {
   if (confirm(lang_confirm)) {
     $.ajax({
       type: 'GET',
-      url: nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=point' + '&paypoint=1&checkss=' + checkss + '&order_id=' + order_id + '&nocache=' + new Date().getTime(),
+      url: nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=point' + '&paypoint=1&checkss=' + checkss + '&order_id=' + order_id + '&nocache=' + new Date().getTime(),
       data: '',
       success: function (data) {
         var s = data.split('_')
@@ -334,7 +336,7 @@ function check_price(id_pro, pro_unit) {
   if (data.length > 0) {
     $.ajax({
       method: 'POST',
-      url: nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=detail&nocache=' + new Date().getTime(),
+      url: nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=detail&nocache=' + new Date().getTime(),
       data: 'check_quantity=1&id_pro=' + id_pro + '&pro_unit=' + pro_unit + '&listid=' + data,
       success: function (res) {
         var s = res.split('_')
@@ -432,7 +434,7 @@ $(document).ready(function () {
       return false
     }
     $icon.addClass('fa-spin')
-    $.post(nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=checkorder&nocache=' + new Date().getTime(), 'id=' + $this.data('id') + '&checkss=' + $this.data('checksess'), function (res) {
+    $.post(nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=checkorder&nocache=' + new Date().getTime(), 'id=' + $this.data('id') + '&checkss=' + $this.data('checksess'), function (res) {
       if (res.status == 'CHANGED') {
         if (confirm(res.message)) {
           window.location.href = res.link

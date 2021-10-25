@@ -1,0 +1,18 @@
+[Mon, 27 Sep 2021 19:01:54 +0700] [haiaustore.io] [::1] [Warning(2): Use of undefined constant NV_ADMIN - assumed 'NV_ADMIN' (this will throw an Error in a future version of PHP)] [FILE: /vendor/vinades/nukeviet/Core/Optimizer.php] [LINE: 279] [TRACE:]
+#1  LINE: 358   FILE: /index.php
+#2  LINE: 175   FILE: /modules/page/funcs/main.php
+#3  LINE: 27    FILE: /includes/footer.php
+
+[Mon, 27 Sep 2021 20:30:23 +0700] [haiaustore.io] [::1] [Notice(8): Undefined index: homeimgfile] [FILE: /modules/shops/theme.php] [LINE: 235] [TRACE:]
+#1  LINE: 358   FILE: /index.php
+#2  LINE: 377   FILE: /modules/shops/funcs/detail.php
+
+[Mon, 27 Sep 2021 20:32:29 +0700] [haiaustore.io] [::1] [Warning(2): Cannot modify header information - headers already sent by (output started at C:\laragon\www\haiaustore\modules\shops\theme.php:238)] [FILE: /includes/footer.php] [LINE: 97] [TRACE:]
+#1  LINE: 358   FILE: /index.php
+#2  LINE: 385   FILE: /modules/shops/funcs/detail.php
+#3  LINE: 97    FILE: /includes/footer.php
+
+[Mon, 27 Sep 2021 20:42:52 +0700] [haiaustore.io] [::1] [Notice(8): Undefined variable: data_conten] [FILE: /modules/shops/theme.php] [LINE: 238] [TRACE:]
+#1  LINE: 358   FILE: /index.php
+#2  LINE: 377   FILE: /modules/shops/funcs/detail.php
+

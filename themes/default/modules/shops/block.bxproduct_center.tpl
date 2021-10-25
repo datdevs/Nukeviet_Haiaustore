@@ -39,7 +39,7 @@
         </div>
         <!-- BEGIN: order -->
         <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm d-block w-100 mb-2" type="button" id="{ROW.id}" onclick="cartorder(this, {GROUP_REQUIE}, '{LINK}'); return !1;"><i class="ci-cart fs-sm me-2"></i>{LANG.add_product}</button>
+          <button class="btn btn-primary btn-sm d-block w-100 mb-2" type="button" id="{ROW.id}" onclick="cartorder(this, {GROUP_REQUIE}, '{LINK}', '{MODULE_DATA}'); return !1;"><i class="ci-cart fs-sm me-2"></i>{LANG.add_product}</button>
         </div>
         <!-- END: order -->
       </div>

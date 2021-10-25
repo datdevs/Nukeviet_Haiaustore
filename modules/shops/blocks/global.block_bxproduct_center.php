@@ -49,57 +49,57 @@ if (!nv_function_exists('nv_global_bxproduct_center')) {
         $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_numget\" size=\"5\" value=\"" . $data_block['numget'] . "\"/></div>";
         $html .= "</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['numrow'] . "</label>";
-        $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_numrow\" size=\"5\" value=\"" . $data_block['numrow'] . "\"/></div>";
-        $html .= "</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['numrow'] . "</label>";
+        // $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_numrow\" size=\"5\" value=\"" . $data_block['numrow'] . "\"/></div>";
+        // $html .= "</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "  <label class=\"control-label col-sm-6\">" . $lang_block['auto'] . "</label>";
-        $auto = ($data_block['auto'] == 1) ? 'checked="checked"' : '';
-        $html .= "  <div class=\"col-sm-18\"><input type=\"checkbox\" name=\"config_auto\" value=\"1\" " . $auto . " \></div>";
-        $html .= "</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "  <label class=\"control-label col-sm-6\">" . $lang_block['auto'] . "</label>";
+        // $auto = ($data_block['auto'] == 1) ? 'checked="checked"' : '';
+        // $html .= "  <div class=\"col-sm-18\"><input type=\"checkbox\" name=\"config_auto\" value=\"1\" " . $auto . " \></div>";
+        // $html .= "</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "<label class=\"control-label col-sm-6\">" . $lang_block['mode'] . "</label>";
-        $html .= "<td>";
-        $sorting_array1 = array(
-            'horizontal' => 'Ngang',
-            'vertical' => 'Dọc'
-        );
-        $html .= '<select name="config_mode" class="form-control w100">';
-        foreach ($sorting_array1 as $key1 => $value1) {
-            $html .= '<option value="' . $key1 . '" ' . ($data_block['mode'] == $key1 ? 'selected="selected"' : '') . '>' . $value1 . '</option>';
-        }
-        $html .= '</select>';
-        $html .= "</td";
-        $html .= "	</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "<label class=\"control-label col-sm-6\">" . $lang_block['mode'] . "</label>";
+        // $html .= "<td>";
+        // $sorting_array1 = array(
+        //     'horizontal' => 'Ngang',
+        //     'vertical' => 'Dọc'
+        // );
+        // $html .= '<select name="config_mode" class="form-control w100">';
+        // foreach ($sorting_array1 as $key1 => $value1) {
+        //     $html .= '<option value="' . $key1 . '" ' . ($data_block['mode'] == $key1 ? 'selected="selected"' : '') . '>' . $value1 . '</option>';
+        // }
+        // $html .= '</select>';
+        // $html .= "</td";
+        // $html .= "	</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['speed'] . "</label>";
-        $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_speed\" size=\"5\" value=\"" . $data_block['speed'] . "\"/></div>";
-        $html .= "</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['speed'] . "</label>";
+        // $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_speed\" size=\"5\" value=\"" . $data_block['speed'] . "\"/></div>";
+        // $html .= "</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['width'] . "</label>";
-        $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_width\" size=\"5\" value=\"" . $data_block['width'] . "\"/></div>";
-        $html .= "</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['width'] . "</label>";
+        // $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_width\" size=\"5\" value=\"" . $data_block['width'] . "\"/></div>";
+        // $html .= "</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['margin'] . "</label>";
-        $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_margin\" size=\"5\" value=\"" . $data_block['margin'] . "\"/></div>";
-        $html .= "</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['margin'] . "</label>";
+        // $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_margin\" size=\"5\" value=\"" . $data_block['margin'] . "\"/></div>";
+        // $html .= "</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['move'] . "</label>";
-        $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_move\" size=\"5\" value=\"" . $data_block['move'] . "\"/></div>";
-        $html .= "</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['move'] . "</label>";
+        // $html .= "	<div class=\"col-sm-18\"><input class=\"form-control w100\" type=\"text\" name=\"config_move\" size=\"5\" value=\"" . $data_block['move'] . "\"/></div>";
+        // $html .= "</div>";
 
-        $html .= "<div class=\"form-group\">";
-        $html .= "  <label class=\"control-label col-sm-6\">" . $lang_block['pager'] . "</label>";
-        $pager = ($data_block['pager'] == 1) ? 'checked="checked"' : '';
-        $html .= "  <div class=\"col-sm-18\"><input type=\"checkbox\" name=\"config_pager\" value=\"1\" " . $pager . " \></div>";
-        $html .= "</div>";
+        // $html .= "<div class=\"form-group\">";
+        // $html .= "  <label class=\"control-label col-sm-6\">" . $lang_block['pager'] . "</label>";
+        // $pager = ($data_block['pager'] == 1) ? 'checked="checked"' : '';
+        // $html .= "  <div class=\"col-sm-18\"><input type=\"checkbox\" name=\"config_pager\" value=\"1\" " . $pager . " \></div>";
+        // $html .= "</div>";
 
         return $html;
     }
@@ -210,20 +210,12 @@ if (!nv_function_exists('nv_global_bxproduct_center')) {
         }
 
         if ($module != $module_name) {
-            // Css
-            if (file_exists(NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/css/' . $mod_file . '.css')) {
-                $block_css = $global_config['module_theme'];
-            } else {
-                $block_css = 'default';
-            }
-            $my_head .= '<link rel="stylesheet" href="' . NV_BASE_SITEURL . 'themes/' . $block_css . '/css/' . $mod_file . '.css' . '" type="text/css" />';
-
             // Language
             if (file_exists(NV_ROOTDIR . '/modules/' . $mod_file . '/language/' . NV_LANG_DATA . '.php')) {
                 require_once NV_ROOTDIR . '/modules/' . $mod_file . '/language/' . NV_LANG_DATA . '.php';
             }
 
-            $sql = 'SELECT catid, parentid, lev, ' . NV_LANG_DATA . '_title AS title, ' . NV_LANG_DATA . '_alias AS alias, viewcat, numsubcat, subcatid, numlinks, ' . NV_LANG_DATA . '_description AS description, inhome, ' . NV_LANG_DATA . '_keywords AS keywords, groups_view, typeprice FROM ' . $db_config['prefix'] . '_' . $mod_data . '_catalogs ORDER BY sort ASC';
+            $sql = 'SELECT catid, parentid, lev, ' . NV_LANG_DATA . '_title AS title, ' . NV_LANG_DATA . '_alias AS alias, viewcat, numsubcat, subcatid, numlinks, ' . NV_LANG_DATA . '_description AS description, inhome, ' . NV_LANG_DATA . '_keywords AS keywords, groups_view, typeprice FROM ' . $db_config['prefix'] . '_' . $mod_data . '_catalogs ORDER BY sort ASC LIMIT ' . $num_get;
             $list = $nv_Cache->db($sql, 'catid', $module);
             foreach ($list as $row) {
                 $global_array_shops_cat[$row['catid']] = array(
@@ -288,7 +280,8 @@ if (!nv_function_exists('nv_global_bxproduct_center')) {
         $xtpl->assign('PAGER', $pager);
         $xtpl->assign('BLOCKID', $blockID);
         $xtpl->assign('BLOCK_TITLE', $block_config['title']);
-        $xtpl->assign('SHOP_LINK', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module);
+        $xtpl->assign('MODULE_DATA', $mod_data);
+        $xtpl->assign('SHOP_LINK', NV_REAL_DOMAIN . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module);
 
         if ($pro_config['sortdefault'] == 0) {
             $orderby = 't1.id DESC';

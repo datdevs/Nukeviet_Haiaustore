@@ -122,7 +122,7 @@ function nv_site_theme($contents, $full = true)
         $metatags[] = [
             'name' => 'name',
             'value' => 'viewport',
-            'content' => 'width=device-width, initial-scale=1'
+            'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0'
         ];
     }
 
@@ -203,7 +203,7 @@ function nv_site_theme($contents, $full = true)
     ];
     $html_js[] = [
         'ext' => 1,
-        'content' => NV_REAL_DOMAIN . 'themes/' . $global_config['module_theme'] . '/vendor/js/g.js'
+        'content' => NV_REAL_DOMAIN . 'themes/' . $global_config['module_theme'] . '/vendor/js/app.js'
     ];
 
     foreach ($html_js as $js) {

@@ -53,7 +53,8 @@
 										<input type="text" name="coupons_code" value="{C_CODE}" id="coupons_code" placeholder="{LANG.coupons_fill}" class="form-control">
 									</div>
 									<div id="coupons_info"></div>
-									<button class="btn btn-outline-primary d-block w-100" id="coupons_check" type="button">{LANG.coupons_check}</button>
+									<button class="btn btn-outline-primary d-block w-100" id="coupons_check" type="button">Áp dụng</button>
+									<button class="btn btn-outline-primary d-none w-100" id="coupons_remove" type="button">Hủy bỏ</button>
 								</div>
 							</div>
 						</div>
@@ -88,16 +89,12 @@
 </div>
 <!-- END: edit_order -->
 
-<script type="text/javascript" data-show="after">
-	$(document).ready(function(){
-		$('[data-toggle="tooltip"]').tooltip();
-	});
-
-	var urload = nv_base_siteurl + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart';
+<script async defer>
+	var urload = nv_real_domain + 'index.php?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=loadcart';
 	$("#total").load(urload + '&t=2');
 
 	$(function() {
-		$("a.remove_cart").click(function() {
+		$(".remove_cart").click(function() {
 			var href = $(this).data("href");
 			$.ajax({
 				type : "GET",
@@ -106,8 +103,9 @@
 				success : function(data) {
 					if (data != '') {
 						$("#" + data).html('');
-						$("#cart_" + nv_module_name).load(urload);
+						$("#cart_block" + nv_module_name).load(urload + '&get_list_product=1');
 						$("#total").load(urload + '&t=2');
+						$('#product_num_total').load(urload + '&t=1')
 					}
 				}
 			});
@@ -117,7 +115,7 @@
 </script>
 
 <!-- BEGIN: coupons_javascript -->
-<script type="text/javascript" data-show="after">
+<script async defer>
 	var coupons_code = $('input[name="coupons_code"]').val();
 	if (coupons_code != '') {
 		$.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=cart&nocache=' + new Date().getTime(), 'coupons_check=1&coupons_code=' + coupons_code, function(res) {

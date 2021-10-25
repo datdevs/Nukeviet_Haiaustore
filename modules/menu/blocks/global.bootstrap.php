@@ -113,9 +113,13 @@ if (!nv_function_exists('nv_menu_bootstrap')) {
         if (!empty($array_menu)) {
             foreach ($array_menu[0] as $id => $item) {
                 $classcurrent = [];
+                $classlink = 'nav-link';
+                $linkevent = '';
                 $submenu_active = [];
                 if (isset($array_menu[$id])) {
                     $classcurrent[] = 'nav-item dropdown';
+                    $classlink = 'nav-link dropdown-toggle';
+                    $linkevent = ' data-bs-toggle="dropdown" aria-expanded="false"';
                     $submenu = nv_get_bootstrap_submenu($id, $array_menu, $submenu_active, $block_theme);
                     $xtpl->assign('SUB', $submenu);
                     $xtpl->parse('main.top_menu.sub');
@@ -130,6 +134,8 @@ if (!nv_function_exists('nv_menu_bootstrap')) {
                     $classcurrent[] = $item['css'];
                 }
                 $item['current'] = empty($classcurrent) ? 'class="nav-item"' : ' class="nav-item ' . (implode(' ', $classcurrent)) . '"';
+                $item['classlink'] = $classlink;
+                $item['linkevent'] = $linkevent;
 
                 if (nv_menu_bootstrap_check_current($item['link'], $item['active_type'])) {
                     $classcurrent[] = 'nav-item active';

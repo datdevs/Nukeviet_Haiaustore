@@ -15,16 +15,16 @@
 		<div class="subscription-status"></div>
 	</form>
 </div>
-<script type="text/javascript">
+<script async defer>
 	$(document).ready(function() {
 		$('input[name=do]').click(function() {
 			var email = $('input[name=email]').val();
 
 			if (email == '') {
-				alert('{LANG.error_email_empty}');
+				toasting('Có lỗi xảy ra', '{LANG.error_email_empty}', 'danger');
 				$('#{MODULE_NAME}_email').focus();
 			} else if (!nv_email_check(document.getElementById('{MODULE_NAME}_email'))) {
-				alert('{LANG.error_email_type}');
+				toasting('Có lỗi xảy ra', '{LANG.error_email_type}', 'danger');
 				$('#{MODULE_NAME}_email').focus();
 			} else {
 				$.ajax({
@@ -33,10 +33,13 @@
 					data : "email=" + email,
 					success : function(a) {
 						if (a > 0) {
-							alert('{LANG.error_existed_email}');
+							toasting('Có lỗi xảy ra', '{LANG.error_existed_email}', 'danger');
 							$('#{MODULE_NAME}_email').focus();
 						} else {
-							window.location.href = '{NV_BASE_SITEURL}' + 'index.php?' + '{NV_NAME_VARIABLE}=newsnotice&status=success&email=' + email;
+							$.post('{NV_BASE_SITEURL}' + 'index.php?' + '{NV_NAME_VARIABLE}=newsnotice&status=success&email=' + email, function() {
+								toasting('Thông báo', 'Đăng ký thành công');
+								$('#{MODULE_NAME}_email').val('')
+							})
 						}
 					}
 				});
